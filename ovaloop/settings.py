@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-zfk5nu-*t@17n#u*w$kauuzrml7q5!l(f1$&$@cgi##xpgcrhq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['52.41.36.82','54.191.253.12','44.226.122.3']
+ALLOWED_HOSTS = ['52.41.36.82','54.191.253.12','44.226.122.3','ovaloop-blog.onrender.com']
 
 
 # Application definition
