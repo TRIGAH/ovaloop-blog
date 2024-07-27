@@ -35,7 +35,6 @@ __pycache__/
 # Distribution / packaging
 .Python
 blog_env/
-static/
 env/
 build/
 develop-eggs/
