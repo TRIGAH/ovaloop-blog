@@ -83,7 +83,7 @@ WSGI_APPLICATION = "ovaloop.wsgi.application"
 # }
 
 DATABASES = {
-	"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+	"default": dj_database_url.parse("postgresql://maps:vlNLibUEbvToGmgbnXsKciMU90IhiDCT@dpg-cqif848gph6c738oca70-a.oregon-postgres.render.com/ovaloopdevserver")
 }
 
 # Password validation
