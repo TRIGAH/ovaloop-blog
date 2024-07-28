@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ovaloop - Blog, Magazine Html Template</title>
+    <title>Ovaloop - Blog, Magazine</title>
     <!-- favicon -->
-    <link rel=icon href="../../static/img/favicon.png" sizes="20x20" type="image/png">
+    <link rel=icon href="../../static/img/favicon.ico" sizes="20x20" type="image/png">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../../static/css/vendor.css">
@@ -71,22 +71,22 @@
     <!-- topbar end-->
 
     <!-- adbar end-->
-    <!-- <div class="adbar-area d-none d-lg-block">
+    <div class="adbar-area d-none d-lg-block">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 align-self-center">
                     <div class="logo text-md-left text-center">
-                        <a class="main-logo" href="index.html"><img src="../../static/img/logo.png" alt="img"></a>
+                        <a class="main-logo" href="index.html"><img src="../../static/img/ovalogo.png" alt="img"></a>
                     </div>
                 </div>
-                <div class="col-md-8 text-md-right text-center">
-                    <a href="blog.html#" class="adbar-right">
+                <!-- <div class="col-md-8 text-md-right text-center">
+                    <a href="blog-list.html#" class="adbar-right">
                         <img src="../../static/img/ad/1.png" alt="img">
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- adbar end-->
 
     <!-- navbar start -->
@@ -95,7 +95,7 @@
             <div class="container nav-container">
                 <div class="responsive-mobile-menu">
                     <div class="logo d-lg-none d-block">
-                        <a class="main-logo" href="index.html"><img src="../../static/img/logo-2.png" alt="img"></a>
+                        <a class="main-logo" href="index.html"><img src="../../../../static/img/ovalogo.png" alt="img"></a>
                     </div>
                     <button class="menu toggle-btn d-block d-lg-none" data-target="#miralax_main_menu" 
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -109,18 +109,18 @@
                 </div>
                 <div class="collapse navbar-collapse" id="miralax_main_menu">
                     <ul class="navbar-nav menu-open">
-                        <li class="menu-item-has-children current-menu-item">
-                            <a href="{{''}}">Home</a>
+                        <li>
+                            <a href="{% url 'blog:index' %}">Home</a>
                         </li>
                         <li class="menu-item-has-children current-menu-item">
-                            <a href="{{'blog'}}">Blog</a>
+                            <a href="{% url 'blog:blog_index' %}">Blog</a>
                             <ul class="sub-menu">
-                                <li><a href="{{''}}">Blog</a></li>
-                                <li><a href="{{'category'}}">Blog Category</a></li>
-                                <li><a href="{{'list'}}">Blog List</a></li>
+                                <li><a href="{% url 'blog:blog_index' %}">Blog</a></li>
+                                <li><a href="{% url 'blog:blog_category' %}">Blog Category</a></li>
+                                <li><a href="{% url 'blog:blog_list' %}">Blog List</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{'contact'}}">Contact</a></li>
+                        <li><a href="{% url 'blog:contact' %}">Contact</a></li>
                     </ul>
                 </div>
                 <div class="nav-right-part nav-right-part-desktop">
@@ -274,7 +274,7 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-4">
+                <!-- <div class="col-lg-4">
                     <div class="sidebar-area mt-5 mt-lg-0">
                         <div class="widget-tab widget-tab-2 widget">
                             <ul class="nav nav-tabs">
@@ -581,7 +581,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div> 
@@ -589,7 +589,7 @@
 
     <!-- footer area start -->
     <footer class="footer-area">
-        <div class="container">
+        <!-- <div class="container">
             <div class="footer-top">
                 <div class="row">
                     <div class="col-xl-2 col-md-4 col-sm-6">
@@ -701,13 +701,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-8 col-lg-7 align-self-center">
                         <div class="footer-logo">
-                            <img src="../../static/img/logo-2.png" alt="img">
+                            <img src="../../../../static/img/ovalogo.png" alt="img">
                         </div>
                         <ul class="footer_menu">
                             <li><a href="blog.html#">About</a></li>
@@ -735,7 +735,7 @@
                         </ul>
                     </div>
                     <div class="col-xl-3 col-lg-6 text-lg-center align-self-center">
-                        <p>@ 2020, <span>Kargil</span>. All right reserved</p>
+                        <p>@ 2020, <span>Ovaloop</span>. All right reserved</p>
                     </div>
                     <div class="col-xl-4 text-xl-right text-xl-center">
                         <ul class="social-area social-area-2">

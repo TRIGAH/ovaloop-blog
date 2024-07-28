@@ -4,7 +4,8 @@ from .forms import CommentForm
 
 # Create your views here.
 def index(request):
-    return render(request, 'blog/index.html')
+    photos = Photo.objects.all()
+    return render(request, 'blog/index.html',{"photos":photos})
 
 def contact(request):
     return render(request, 'blog/contact.html')

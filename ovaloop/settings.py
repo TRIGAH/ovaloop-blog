@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-zfk5nu-*t@17n#u*w$kauuzrml7q5!l(f1$&$@cgi##xpgcrhq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['52.41.36.82','54.191.253.12','44.226.122.3','ovaloop-blog.onrender.com']
+ALLOWED_HOSTS = ['52.41.36.82','54.191.253.12','44.226.122.3','ovaloop-blog.onrender.com','127.0.0.1']
 
 
 # Application definition
@@ -52,12 +52,12 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-STORAGES = {
-    # ...
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+# STORAGES = {
+#     # ...
+#     "staticfiles": {
+#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#     },
+# }
 
 ROOT_URLCONF = "ovaloop.urls"
 
@@ -130,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # STATIC_ROOT = BASE_DIR / 'static'
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_DIRS = [(BASE_DIR / "static"),]
 
