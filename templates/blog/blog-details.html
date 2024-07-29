@@ -94,7 +94,7 @@
             <div class="container nav-container">
                 <div class="responsive-mobile-menu">
                     <div class="logo d-lg-none d-block">
-                        <a class="main-logo" href="index.html"><img src="../../static/img/logo-2.png" alt="img"></a>
+                        <a class="main-logo" href="index.html"><img src="../../static/img/ovalogo.png" alt="img"></a>
                     </div>
                     <button class="menu toggle-btn d-block d-lg-none" data-target="#miralax_main_menu" 
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -102,10 +102,10 @@
                         <span class="icon-right"></span>
                     </button>
                 </div>
-                <div class="nav-right-part nav-right-part-mobile">
+                <!-- <div class="nav-right-part nav-right-part-mobile">
                     <a class="cart-header" href="blog-details.html#"><img src="../../static/img/icon/cart.png" alt="img"><span>5</span></a>
                     <a class="search header-search" href="blog-details.html#"><i class="fa fa-search"></i></a>
-                </div>
+                </div> -->
                 <div class="collapse navbar-collapse" id="miralax_main_menu">
                     <ul class="navbar-nav menu-open">
                         <li>
@@ -122,10 +122,10 @@
                         <li><a href="{% url 'blog:contact' %}">Contact</a></li>
                     </ul>
                 </div>
-                <div class="nav-right-part nav-right-part-desktop">
+                <!-- <div class="nav-right-part nav-right-part-desktop">
                     <a class="cart-header" href="blog-details.html#"><img src="../../static/img/icon/cart.png" alt="img"><span>5</span></a>
                     <a class="search header-search" href="blog-details.html#"><i class="fa fa-search"></i></a>
-                </div>
+                </div> -->
             </div>
         </nav>
     </div>
@@ -158,29 +158,37 @@
                         <div class="thumb">
                             <img src="{{ photo.image.url }}" alt="img">
                         </div>
+                        <!-- <div>
+                            {% for category in photo.post.categories.all %}
+                            {{ category.name }}{% if not forloop.last %}, {% endif %}
+                          {% endfor %}
+                        </div> -->
                         <div>
-                            <a class="tag" href="blog-details.html#">Fashion</a>
-                            <a class="tag tag-1" href="blog-details.html#">Dress</a>
+                            <a class="tag" href="{% url 'blog:blog_details' pk=photo.post.pk %}">
+                                {% for tag in photo.post.tags.all %}
+                                {{ tag.name }}{% if not forloop.last %}, {% endif %}
+                              {% endfor %}
+                            </a>
                         </div>
-                        <div class="meta">
+                        <!-- <div class="meta">
                             <a href="blog-details.html#" class="author">
                                 <img src="../../static/img/author/3.png" alt="img">
                                 {{ post.author }}
                             </a>
-                        </div>
+                        </div> -->
                         <div class="meta float-sm-right">
                             <div class="date">
                                 <i class="fa fa-clock-o"></i>
-                                12 Jun 22
+                                {{ photo.post.created_at }}
                             </div>
                             <div class="comments m-0">
                                 <i class="fa fa-comments"></i>
-                                Comments 254
+                                Comments {{ photo.post.comments.count }}
                             </div>
-                            <div class="time">
+                            <!-- <div class="time">
                                 <i class="fa fa-clock-o"></i>
                                 5 mins Read
-                            </div>
+                            </div> -->
                         </div>
                         <h5>{{ post.title }}</h5>
                         <blockquote>
@@ -920,7 +928,7 @@
                         </ul>
                     </div>
                     <div class="col-xl-3 col-lg-6 text-lg-center align-self-center">
-                        <p>@ 2020, <span>Ovaloop</span>. All right reserved</p>
+                        <p>@ 2024, <span>Ovaloop</span>. All right reserved</p>
                     </div>
                     <div class="col-xl-4 text-xl-right text-xl-center">
                         <ul class="social-area social-area-2">

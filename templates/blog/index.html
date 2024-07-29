@@ -103,10 +103,10 @@
                         <span class="icon-right"></span>
                     </button>
                 </div>
-                <div class="nav-right-part nav-right-part-mobile">
+                <!-- <div class="nav-right-part nav-right-part-mobile">
                     <a class="cart-header" href="index.html#"><img src="../../static/img/icon/cart.png" alt="img"><span>5</span></a>
                     <a class="search header-search" href="index.html#"><i class="fa fa-search"></i></a>
-                </div>
+                </div> -->
                 <div class="collapse navbar-collapse" id="miralax_main_menu">
                     <ul class="navbar-nav menu-open">
                         <li>
@@ -123,10 +123,10 @@
                         <li><a href="{% url 'blog:contact' %}">Contact</a></li>
                     </ul>
                 </div>
-                <div class="nav-right-part nav-right-part-desktop">
+                <!-- <div class="nav-right-part nav-right-part-desktop">
                     <a class="cart-header" href="index.html#"><img src="../../static/img/icon/cart.png" alt="img"><span>5</span></a>
                     <a class="search header-search" href="index.html#"><i class="fa fa-search"></i></a>
-                </div>
+                </div> -->
             </div>
         </nav>
     </div>
@@ -393,23 +393,23 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-post-wrap">
                         <div class="thumb">
-                            <img src="{{ photo.image.url }}" alt="img">
+                            <img width="350" height="300" src="{{ photo.image.url }}" alt="img">
                             {% for tag in photo.post.tags.all %}
                             <a class="tag" href="{% url 'blog:index' %}">{{ tag.name }}{% if not forloop.last %}, {% endif %}</a>
                             {% endfor %}
                         </div>
                         <h6><a href="{% url 'blog:blog_details' pk=photo.post.pk %}">{{photo.post.title}}</a></h6>
                         <div class="meta">
-                            <a href="index.html#" class="author">
+                            <!-- <a href="index.html#" class="author">
                                 <img src="{{ photo.post.author }}" alt="img">
-                            </a>
+                            </a> -->
                             <div class="date">
                                 <i class="fa fa-clock-o"></i>
-                                12 Jun 22
+                                {{ photo.post.created_at }}
                             </div>
-                            <div class="views">
+                            <!-- <div class="views">
                                 586 Views
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -1772,11 +1772,11 @@
                             <!-- <img src="../../static/img/ovalogo.png" alt="img" width="500" height="200"> -->
 
                         </div>
-                        <ul class="footer_menu">
+                        <!-- <ul class="footer_menu">
                             <li><a href="index.html#">About</a></li>
                             <li><a href="index.html#">Contact</a></li>
                             <li><a href="index.html#">Advertisement</a></li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <div class="col-xl-4 col-lg-5 text-lg-right">
                         <div class="footer-subscribe-inner">
@@ -1792,22 +1792,21 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-5 col-lg-6 align-self-center">
                         <ul class="privacy-menu">
-                            <li><a href="index.html#">Terms & Conditions</a></li>
-                            <li><a href="index.html#">Privacy Policy</a></li>
-                            <li><a href="index.html#">Sitemap</a></li>
+                            <li><a href="https://www.ovaloop.com/terms-and-condition">Terms & Conditions</a></li>
+                            <li><a href="https://www.ovaloop.com/privacy-policy">Privacy Policy</a></li>
                         </ul>
                     </div>
                     <div class="col-xl-3 col-lg-6 text-lg-center align-self-center">
-                        <p>@ 2020, <span>Ovaloop</span>. All right reserved</p>
+                        <p>@ 2024, <span><a href="https://business.ovaloop.app/login">Ovaloop</a></span>. All right reserved</p>
                     </div>
                     <div class="col-xl-4 text-xl-right text-xl-center">
                         <ul class="social-area social-area-2">
-                            <li><a href="index.html#"><i class="fa fa-youtube-play"></i></a></li>
+                            <!-- <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
                             <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="index.html#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="index.html#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="index.html#"><i class="fa fa-whatsapp"></i></a></li>
+                            <li><a href="index.html#"><i class="fa fa-twitter"></i></a></li> -->
+                            <li><a href="https://www.linkedin.com/company/ovaloop/"><i class="fa fa-linkedin"></i></a></li>
+                            <!-- <li><a href="index.html#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="index.html#"><i class="fa fa-whatsapp"></i></a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -1824,9 +1823,9 @@
 
 
     <!-- all plugins here -->
-    <script src="static/js/vendor.js"></script>
-    <script src="static/js/jquery.magnific-popup.min.js"></script>
+    <script src="../../static/js/vendor.js"></script>
+    <script src="../../static/js/jquery.magnific-popup.min.js"></script>
     <!-- main js  -->
-    <script src="static/js/main.js"></script>
+    <script src="../../static/js/main.js"></script>
 </body>
 </html>

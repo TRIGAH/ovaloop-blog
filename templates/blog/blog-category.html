@@ -94,7 +94,7 @@
             <div class="container nav-container">
                 <div class="responsive-mobile-menu">
                     <div class="logo d-lg-none d-block">
-                        <a class="main-logo" href="index.html"><img src="../../static/img/logo-2.png" alt="img"></a>
+                        <a class="main-logo" href="index.html"><img src="../../static/img/ovalogo.png" alt="img"></a>
                     </div>
                     <button class="menu toggle-btn d-block d-lg-none" data-target="#miralax_main_menu" 
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -102,10 +102,10 @@
                         <span class="icon-right"></span>
                     </button>
                 </div>
-                <div class="nav-right-part nav-right-part-mobile">
+                <!-- <div class="nav-right-part nav-right-part-mobile">
                     <a class="cart-header" href="blog-category.html#"><img src="../../static/img/icon/cart.png" alt="img"><span>5</span></a>
                     <a class="search header-search" href="blog-category.html#"><i class="fa fa-search"></i></a>
-                </div>
+                </div> -->
  
                 <div class="collapse navbar-collapse" id="miralax_main_menu">
                     <ul class="navbar-nav menu-open">
@@ -123,10 +123,10 @@
                         <li><a href="{% url 'blog:contact' %}">Contact</a></li>
                     </ul>
                 </div>
-                <div class="nav-right-part nav-right-part-desktop">
+                <!-- <div class="nav-right-part nav-right-part-desktop">
                     <a class="cart-header" href="blog-category.html#"><img src="../../static/img/icon/cart.png" alt="img"><span>5</span></a>
                     <a class="search header-search" href="blog-category.html#"><i class="fa fa-search"></i></a>
-                </div>
+                </div> -->
             </div>
         </nav>
     </div>
@@ -140,7 +140,7 @@
                     <div class="breadcrumb-inner">
                         <i class="fa fa-home"></i>
                         <ul class="page-list">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{% url 'blog:index' %}">Home</a></li>
                             <li>Categories</li>
                         </ul>
                     </div>
@@ -151,79 +151,85 @@
                     <div class="col-sm-6">
                         <h5 class="title">Popular Categories</h5>
                     </div>
-                    <div class="col-sm-6 text-sm-right align-self-center">
+                    <!-- <div class="col-sm-6 text-sm-right align-self-center">
                         <h5><a href="blog-category.html#">(130)</a></h5>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="row">
+                {% for photo in photos %}
                 <div class="col-lg-3 col-md-6">
                     <div class="single-category-wrap">
                         <div class="thumb">
-                            <img src="../../static/img/category/1.png" alt="img">
-                            <a href="blog-category.html#"><img src="../../static/img/fire.png" alt="img">LifeStyle</a>
+                            <img width="200" height="200" src="{{ photo.image.url }}" alt="img">
+                            <a href="{% url 'blog:blog_details' pk=photo.post.pk %}"><img src="../../static/img/fire.png" alt="img">
+                                {% for category in photo.post.categories.all %}
+                                {{ category.name }}{% if not forloop.last %}, {% endif %}
+                              {% endfor %}
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                {% endfor %}
+                <!-- <div class="col-lg-3 col-md-6">
                     <div class="single-category-wrap">
                         <div class="thumb">
                             <img src="../../static/img/category/2.png" alt="img">
                             <a href="blog-category.html#"><img src="../../static/img/fire.png" alt="img">Art Fashion</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-6">
                     <div class="single-category-wrap">
                         <div class="thumb">
                             <img src="../../static/img/category/3.png" alt="img">
                             <a href="blog-category.html#"><img src="../../static/img/fire.png" alt="img">Art Fashion</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-6">
                     <div class="single-category-wrap">
                         <div class="thumb">
                             <img src="../../static/img/category/4.png" alt="img">
                             <a href="blog-category.html#"><img src="../../static/img/fire.png" alt="img">Art Fashion</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-6">
                     <div class="single-category-wrap">
                         <div class="thumb">
                             <img src="../../static/img/category/5.png" alt="img">
                             <a href="blog-category.html#"><img src="../../static/img/fire.png" alt="img">Food</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-6">
                     <div class="single-category-wrap">
                         <div class="thumb">
                             <img src="../../static/img/category/6.png" alt="img">
                             <a href="blog-category.html#"><img src="../../static/img/fire.png" alt="img">Beauty</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-6">
                     <div class="single-category-wrap">
                         <div class="thumb">
                             <img src="../../static/img/category/7.png" alt="img">
                             <a href="blog-category.html#"><img src="../../static/img/fire.png" alt="img">Iphone 10+</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-6">
                     <div class="single-category-wrap">
                         <div class="thumb">
                             <img src="../../static/img/category/8.png" alt="img">
                             <a href="blog-category.html#"><img src="../../static/img/fire.png" alt="img">Illustration</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-lg-12">
                     <div class="btn-wrap text-center">
-                        <a class="btn btn-main" href="blog-category.html#">Load More</a>
+                        <a class="btn btn-main" href="{% url 'blog:blog_category' %}">Load More</a>
                     </div>
                 </div>
             </div>
@@ -309,19 +315,19 @@
 
     <!-- footer area start -->
     <footer class="footer-area">
-        <div class="container">
-            <!-- <div class="footer-top">
+        <!-- <div class="container">
+            <div class="footer-top">
                 <div class="row">
                     <div class="col-xl-2 col-md-4 col-sm-6">
                         <h5 class="widget-title">Quick Links</h5>
                         <div class="widget widget_link">
                             <ul>
-                                <li><a href="blog-category.html#">About Us</a></li>
-                                <li><a href="blog-category.html#">Blog</a></li>
-                                <li><a href="blog-category.html#">Contact Us</a></li>
-                                <li><a href="blog-category.html#">Privacy & Policy</a></li>
-                                <li><a href="blog-category.html#">Terms & Conditions</a></li>
-                                <li><a href="blog-category.html#">Affiliate Program</a></li>
+                                <li><a href="index.html#">About Us</a></li>
+                                <li><a href="index.html#">Blog</a></li>
+                                <li><a href="index.html#">Contact Us</a></li>
+                                <li><a href="index.html#">Privacy & Policy</a></li>
+                                <li><a href="index.html#">Terms & Conditions</a></li>
+                                <li><a href="index.html#">Affiliate Program</a></li>
                             </ul>
                         </div>
                     </div>
@@ -329,13 +335,13 @@
                         <h5 class="widget-title">Popular Posts</h5>
                         <div class="widget widget_link">
                             <ul>
-                                <li><a href="blog-category.html#">Celebrity News</a></li>
-                                <li><a href="blog-category.html#">Movies</a></li>
-                                <li><a href="blog-category.html#">TV News</a></li>
-                                <li><a href="blog-category.html#">Music News</a></li>
-                                <li><a href="blog-category.html#">Style News</a></li>
-                                <li><a href="blog-category.html#">Entertainment Video</a></li>
-                                <li><a href="blog-category.html#">Design Website</a></li>
+                                <li><a href="index.html#">Celebrity News</a></li>
+                                <li><a href="index.html#">Movies</a></li>
+                                <li><a href="index.html#">TV News</a></li>
+                                <li><a href="index.html#">Music News</a></li>
+                                <li><a href="index.html#">Style News</a></li>
+                                <li><a href="index.html#">Entertainment Video</a></li>
+                                <li><a href="index.html#">Design Website</a></li>
                             </ul>
                         </div>
                     </div>
@@ -343,13 +349,13 @@
                         <h5 class="widget-title">International</h5>
                         <div class="widget widget_link">
                             <ul>
-                                <li><a href="blog-category.html#">Executive</a></li>
-                                <li><a href="blog-category.html#">Senate</a></li>
-                                <li><a href="blog-category.html#">House</a></li>
-                                <li><a href="blog-category.html#">Judiciary</a></li>
-                                <li><a href="blog-category.html#">Foreign policy</a></li>
-                                <li><a href="blog-category.html#">Polls</a></li>
-                                <li><a href="blog-category.html#">Elections</a></li>
+                                <li><a href="index.html#">Executive</a></li>
+                                <li><a href="index.html#">Senate</a></li>
+                                <li><a href="index.html#">House</a></li>
+                                <li><a href="index.html#">Judiciary</a></li>
+                                <li><a href="index.html#">Foreign policy</a></li>
+                                <li><a href="index.html#">Polls</a></li>
+                                <li><a href="index.html#">Elections</a></li>
                             </ul>
                         </div>
                     </div>
@@ -357,12 +363,12 @@
                         <h5 class="widget-title">Quick Links</h5>
                         <div class="widget widget_link">
                             <ul>
-                                <li><a href="blog-category.html#">About Us</a></li>
-                                <li><a href="blog-category.html#">Blog</a></li>
-                                <li><a href="blog-category.html#">Contact Us</a></li>
-                                <li><a href="blog-category.html#">Privacy & Policy</a></li>
-                                <li><a href="blog-category.html#">Terms & Conditions</a></li>
-                                <li><a href="blog-category.html#">Affiliate Program</a></li>
+                                <li><a href="index.html#">About Us</a></li>
+                                <li><a href="index.html#">Blog</a></li>
+                                <li><a href="index.html#">Contact Us</a></li>
+                                <li><a href="index.html#">Privacy & Policy</a></li>
+                                <li><a href="index.html#">Terms & Conditions</a></li>
+                                <li><a href="index.html#">Affiliate Program</a></li>
                             </ul>
                         </div>
                     </div>
@@ -371,48 +377,48 @@
                             <h5 class="widget-title">Latest Posts</h5>
                             <div class="media-post-wrap media">
                                 <div class="thumb">
-                                    <img src="../../static/img/footer/1.png" alt="img">
+                                    <img src="static/img/footer/1.png" alt="img">
                                 </div>
                                 <div class="media-body">
-                                    <h6><a href="blog-category.html#">Nothing impossble to need hard work</a></h6>
+                                    <h6><a href="index.html#">Nothing impossble to need hard work</a></h6>
                                     <div class="meta">
                                         <div class="date">
                                             12 Jun 2020
                                         </div>
                                         <div class="author">
-                                            <a href="blog-category.html#">Rt Shuvro</a>
+                                            <a href="index.html#">Rt Shuvro</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="media-post-wrap media">
                                 <div class="thumb">
-                                    <img src="../../static/img/footer/2.png" alt="img">
+                                    <img src="static/img/footer/2.png" alt="img">
                                 </div>
                                 <div class="media-body">
-                                    <h6><a href="blog-category.html#">Nothing impossble to need hard work</a></h6>
+                                    <h6><a href="index.html#">Nothing impossble to need hard work</a></h6>
                                     <div class="meta">
                                         <div class="date">
                                             12 Jun 2020
                                         </div>
                                         <div class="author">
-                                            <a href="blog-category.html#">Rt Shuvro</a>
+                                            <a href="index.html#">Rt Shuvro</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="media-post-wrap media">
                                 <div class="thumb">
-                                    <img src="../../static/img/footer/3.png" alt="img">
+                                    <img src="static/img/footer/3.png" alt="img">
                                 </div>
                                 <div class="media-body">
-                                    <h6><a href="blog-category.html#">Nothing impossble to need hard work</a></h6>
+                                    <h6><a href="index.html#">Nothing impossble to need hard work</a></h6>
                                     <div class="meta">
                                         <div class="date">
                                             12 Jun 2020
                                         </div>
                                         <div class="author">
-                                            <a href="blog-category.html#">Rt Shuvro</a>
+                                            <a href="index.html#">Rt Shuvro</a>
                                         </div>
                                     </div>
                                 </div>
@@ -420,20 +426,22 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
-        </div>
+            </div>
+        </div> -->
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-8 col-lg-7 align-self-center">
                         <div class="footer-logo">
                             <img src="../../static/img/ovalogo.png" alt="img">
+                            <!-- <img src="../../static/img/ovalogo.png" alt="img" width="500" height="200"> -->
+
                         </div>
-                        <ul class="footer_menu">
-                            <li><a href="blog-category.html#">About</a></li>
-                            <li><a href="blog-category.html#">Contact</a></li>
-                            <li><a href="blog-category.html#">Advertisement</a></li>
-                        </ul>
+                        <!-- <ul class="footer_menu">
+                            <li><a href="index.html#">About</a></li>
+                            <li><a href="index.html#">Contact</a></li>
+                            <li><a href="index.html#">Advertisement</a></li>
+                        </ul> -->
                     </div>
                     <div class="col-xl-4 col-lg-5 text-lg-right">
                         <div class="footer-subscribe-inner">
@@ -449,22 +457,21 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-5 col-lg-6 align-self-center">
                         <ul class="privacy-menu">
-                            <li><a href="blog-category.html#">Terms & Conditions</a></li>
-                            <li><a href="blog-category.html#">Privacy Policy</a></li>
-                            <li><a href="blog-category.html#">Sitemap</a></li>
+                            <li><a href="https://www.ovaloop.com/terms-and-condition">Terms & Conditions</a></li>
+                            <li><a href="https://www.ovaloop.com/privacy-policy">Privacy Policy</a></li>
                         </ul>
                     </div>
                     <div class="col-xl-3 col-lg-6 text-lg-center align-self-center">
-                        <p>@ 2020, <span>Ovaloop</span>. All right reserved</p>
+                        <p>@ 2024, <span><a href="https://business.ovaloop.app/login">Ovaloop</a></span>. All right reserved</p>
                     </div>
                     <div class="col-xl-4 text-xl-right text-xl-center">
                         <ul class="social-area social-area-2">
-                            <li><a href="blog-category.html#"><i class="fa fa-youtube-play"></i></a></li>
-                            <li><a href="blog-category.html#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="blog-category.html#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="blog-category.html#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="blog-category.html#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="blog-category.html#"><i class="fa fa-whatsapp"></i></a></li>
+                            <!-- <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                            <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="index.html#"><i class="fa fa-twitter"></i></a></li> -->
+                            <li><a href="https://www.linkedin.com/company/ovaloop/"><i class="fa fa-linkedin"></i></a></li>
+                            <!-- <li><a href="index.html#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="index.html#"><i class="fa fa-whatsapp"></i></a></li> -->
                         </ul>
                     </div>
                 </div>

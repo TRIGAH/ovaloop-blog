@@ -56,7 +56,8 @@ def blog_comment(request):
 
 
 def blog_category(request):
-    return render(request, 'blog/blog-category.html')
+    photos = Photo.objects.all()
+    return render(request, 'blog/blog-category.html',{'photos': photos})
 
 def blog_list(request):
     photos = Photo.objects.all()

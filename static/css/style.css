@@ -3476,7 +3476,7 @@ ul {
 }
 
 .footer-area {
-  background: #101010;
+  background: #ffffff;
 }
 .footer-area .footer-top {
   padding: 74px 0 0 0;
@@ -3508,7 +3508,7 @@ ul {
   margin-bottom: 32px;
 }
 .footer-area .footer-bottom {
-  border-top: 1px solid #3a3a3a;
+  border-top: 1px solid #5b09f8;
   padding: 46px 0;
 }
 .footer-area .footer-bottom .footer-logo {
@@ -3562,7 +3562,7 @@ ul {
   transition: 0.4s;
 }
 .footer-area .footer-bottom .footer-subscribe-inner button:hover {
-  background: #040404;
+  background: #5b09f8;
 }
 .footer-area .copyright-area {
   background-color: #262626;
