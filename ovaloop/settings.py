@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-zfk5nu-*t@17n#u*w$kauuzrml7q5!l(f1$&$@cgi##xpgcrhq"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['52.41.36.82','54.191.253.12','44.226.122.3','ovaloop-blog.onrender.com','127.0.0.1']
 
@@ -132,15 +132,20 @@ USE_TZ = True
 # # STATIC_ROOT = BASE_DIR / 'static'
 # STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# STATICFILES_DIRS = [(BASE_DIR / "static"),]
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+
+
 # This setting informs Django of the URI path from which your static files will be served to users
 # Here, they well be accessible at your-domain.onrender.com/static/... or yourcustomdomain.com/static/...
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR / "static"),]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 
 # This production code might break development mode, so we check whether we're in DEBUG mode
 if not DEBUG:
@@ -154,8 +159,7 @@ if not DEBUG:
 # STATIC_ROOT = BASE_DIR / 'staticfiles/static_root'
 # STATICFILES_DIRS = [(BASE_DIR / "staticfiles/pstatic"),]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT =  os.path.join(BASE_DIR, '/media')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
