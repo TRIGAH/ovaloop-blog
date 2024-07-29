@@ -115,7 +115,7 @@
                         <li class="menu-item-has-children current-menu-item">
                             <a href="{% url 'blog:blog_index' %}">Blog</a>
                             <ul class="sub-menu">
-                                <li><a href="{% url 'blog:blog_index' %}">Blog</a></li>
+                                <!-- <li><a href="{% url 'blog:blog_index' %}">Blog</a></li> -->
                                 <li><a href="{% url 'blog:blog_category' %}">Blog Category</a></li>
                                 <li><a href="{% url 'blog:blog_list' %}">Blog List</a></li>
                             </ul>
@@ -152,9 +152,10 @@
                             <h6><a href="blog-list.html#">(512)</a></h6>
                         </div>
                     </div>
+                    {% for photo in photos %}
                     <div class="single-post-wrap">
-                        <a class="tag" href="blog-list.html#">Beauty</a>
-                        <h5><a href="blog-list.html#">30 Fashion and Beauty Tips and Tricks Every Woman Should Use Daily LifeStyle</a></h5>
+                        <a class="tag" href="blog-list.html#">startup</a>
+                        <h5><a href="blog-list.html#">{{ photo.post.title }}</a></h5>
                         <div class="meta">
                             <div class="date">
                                 <i class="fa fa-clock-o"></i>
@@ -162,15 +163,16 @@
                             </div>                            
                             <a href="blog-list.html#" class="author">
                                 <i class="fa fa-user"></i>
-                                Jhone Doe 
+                                {{ photo.post.author }}
                             </a>
                             <div class="views">
                                 Length: 9 Mins   
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                     
-                    <div class="single-post-wrap">
+                    <!-- <div class="single-post-wrap">
                         <a class="tag" href="blog-list.html#">Spa</a>
                         <h5><a href="blog-list.html#">Replicable boots on the ground gender rights NGO framework empower correlation vibrant empower.</a></h5>
                         <div class="meta">
@@ -186,8 +188,8 @@
                                 Length: 9 Mins   
                             </div>
                         </div>
-                    </div>
-                    <div class="single-post-wrap">
+                    </div> -->
+                    <!-- <div class="single-post-wrap">
                         <a class="tag" href="blog-list.html#">Beauty</a>
                         <h5><a href="blog-list.html#">Compassion overcome injustice shared unit of analysis; her body her rights segmentation.</a></h5>
                         <div class="meta">
@@ -203,8 +205,8 @@
                                 Length: 9 Mins   
                             </div>
                         </div>
-                    </div>
-                    <div class="single-post-wrap">
+                    </div> -->
+                    <!-- <div class="single-post-wrap">
                         <a class="tag" href="blog-list.html#">Beauty</a>
                         <h5><a href="blog-list.html#">State of play policymaker, efficient B-corp bandwidth expose the truth accessibility.</a></h5>
                         <div class="meta">
@@ -220,8 +222,8 @@
                                 Length: 9 Mins   
                             </div>
                         </div>
-                    </div>
-                    <div class="single-post-wrap">
+                    </div> -->
+                    <!-- <div class="single-post-wrap">
                         <a class="tag" href="blog-list.html#">Beauty</a>
                         <h5><a href="blog-list.html#">There must be someone behind the person who has achieved</a></h5>
                         <div class="meta">
@@ -237,8 +239,8 @@
                                 Length: 9 Mins   
                             </div>
                         </div>
-                    </div>
-                    <div class="single-post-wrap mb-0">
+                    </div> -->
+                    <!-- <div class="single-post-wrap mb-0">
                         <a class="tag" href="blog-list.html#">Beauty</a>
                         <h5><a href="blog-list.html#">State of play policymaker, efficient B-corp bandwidth expose the truth accessibility.</a></h5>
                         <div class="meta">
@@ -254,7 +256,7 @@
                                 Length: 9 Mins   
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="recent-news-area-3 pd-top-70">
                         <div class="section-title">
                             <div class="row">

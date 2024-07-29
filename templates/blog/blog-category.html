@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ovaloop - Blog, Magazine</title>
     <!-- favicon -->
-    <link rel=icon href="../../static/img/favicon.png" sizes="20x20" type="image/png">
+    <link rel=icon href="../../static/img/favicon.ico" sizes="20x20" type="image/png">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../../static/css/vendor.css">
@@ -19,28 +19,28 @@
 <body>
 
     <!-- preloader area start -->
-    <div class="preloader" id="preloader">
+    <!-- <div class="preloader" id="preloader">
         <div class="preloader-inner">
             <div class="spinner">
                 <div class="dot1"></div>
                 <div class="dot2"></div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- search popup area start -->
-    <div class="search-popup" id="search-popup">
+    <!-- <div class="search-popup" id="search-popup">
         <form action="index.html" class="search-form">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search.....">
             </div>
             <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
         </form>
-    </div>
+    </div> -->
     <!-- //. search Popup -->
     <div class="body-overlay" id="body-overlay"></div>
 
     <!-- topbar end-->
-    <div class="topbar-area">
+    <!-- <div class="topbar-area">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-7 align-self-center">
@@ -66,7 +66,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- topbar end-->
 
     <!-- adbar end-->
@@ -75,14 +75,14 @@
             <div class="row">
                 <div class="col-md-4 align-self-center">
                     <div class="logo text-md-left text-center">
-                        <a class="main-logo" href="index.html"><img src="../../static/img/logo.png" alt="img"></a>
+                        <a class="main-logo" href="index.html"><img src="../../static/img/ovalogo.png" alt="img"></a>
                     </div>
                 </div>
-                <div class="col-md-8 text-md-right text-center">
+                <!-- <div class="col-md-8 text-md-right text-center">
                     <a href="blog-category.html#" class="adbar-right">
                         <img src="../../static/img/ad/1.png" alt="img">
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -106,34 +106,21 @@
                     <a class="cart-header" href="blog-category.html#"><img src="../../static/img/icon/cart.png" alt="img"><span>5</span></a>
                     <a class="search header-search" href="blog-category.html#"><i class="fa fa-search"></i></a>
                 </div>
+ 
                 <div class="collapse navbar-collapse" id="miralax_main_menu">
                     <ul class="navbar-nav menu-open">
-                        <li class="menu-item-has-children current-menu-item">
-                            <a href="{{''}}">Home</a>
-                            <!-- <ul class="sub-menu">
-                                <li><a href="index.html">Home 01</a></li>
-                                <li><a href="index-2.html">Home 02</a></li>
-                                <li><a href="index-3.html">Home 03</a></li>
-                                <li><a href="index-4.html">Home 04</a></li>
-                            </ul> -->
+                        <li>
+                            <a href="{% url 'blog:index' %}">Home</a>
                         </li>
-                        <!-- <li><a href="blog-category.html">Category</a></li>
                         <li class="menu-item-has-children current-menu-item">
-                            <a href="blog-category.html#">Pages</a>
+                            <a href="{% url 'blog:blog_index' %}">Blog</a>
                             <ul class="sub-menu">
-                                <li><a href="blog-category.html">Blog Category</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </li> -->
-                        <li class="menu-item-has-children current-menu-item">
-                            <a href="{{'blog'}}">Blog</a>
-                            <ul class="sub-menu">
-                                <li><a href="{% url 'blog:blog_index' %}">Blog</a></li>
+                                <!-- <li><a href="{% url 'blog:blog_index' %}">Blog</a></li> -->
                                 <li><a href="{% url 'blog:blog_category' %}">Blog Category</a></li>
                                 <li><a href="{% url 'blog:blog_list' %}">Blog List</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{'contact'}}">Contact</a></li>
+                        <li><a href="{% url 'blog:contact' %}">Contact</a></li>
                     </ul>
                 </div>
                 <div class="nav-right-part nav-right-part-desktop">

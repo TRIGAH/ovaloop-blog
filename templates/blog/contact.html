@@ -108,19 +108,18 @@
                 </div>
                 <div class="collapse navbar-collapse" id="miralax_main_menu">
                     <ul class="navbar-nav menu-open">
-                        <li class="menu-item-has-children current-menu-item">
-                            <a href="{{''}}">Home</a>
+                        <li>
+                            <a href="{% url 'blog:index' %}">Home</a>
                         </li>
-                        <!-- <li><a href="{{'blog-category'}}">Category</a></li> -->
                         <li class="menu-item-has-children current-menu-item">
-                            <a href="{{'blog'}}">Blog</a>
+                            <a href="{% url 'blog:blog_index' %}">Blog</a>
                             <ul class="sub-menu">
-                                <li><a href="{{'blog'}}">Blog</a></li>
-                                <li><a href="{{'blog-category'}}">Blog Category</a></li>
-                                <li><a href="{{'blog-list'}}">Blog List</a></li>
+                                <!-- <li><a href="{% url 'blog:blog_index' %}">Blog</a></li> -->
+                                <li><a href="{% url 'blog:blog_category' %}">Blog Category</a></li>
+                                <li><a href="{% url 'blog:blog_list' %}">Blog List</a></li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{% url 'blog:contact' %}">Contact</a></li>
                     </ul>
                 </div>
                 <div class="nav-right-part nav-right-part-desktop">

@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kargill - Blog, Magazine Html Template</title>
+    <title>Ovaloop - Blog, Magazine</title>
     <!-- favicon -->
-    <link rel=icon href="../../static/img/favicon.png" sizes="20x20" type="image/png">
+    <link rel=icon href="../../static/img/favicon.ico" sizes="20x20" type="image/png">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../../static/css/vendor.css">
@@ -108,27 +108,13 @@
                 </div>
                 <div class="collapse navbar-collapse" id="miralax_main_menu">
                     <ul class="navbar-nav menu-open">
-                        <li class="menu-item-has-children current-menu-item">
-                            <a href="{{''}}">Home</a>
-                            <!-- <ul class="sub-menu">
-                                <li><a href="index.html">Home 01</a></li>
-                                <li><a href="index-2.html">Home 02</a></li>
-                                <li><a href="index-3.html">Home 03</a></li>
-                                <li><a href="index-4.html">Home 04</a></li>
-                            </ul> -->
+                        <li>
+                            <a href="{% url 'blog:index' %}">Home</a>
                         </li>
-                        <!-- <li><a href="blog-category.html">Category</a></li> -->
-                        <!-- <li class="menu-item-has-children current-menu-item">
-                            <a href="blog-details.html#">Pages</a>
-                            <ul class="sub-menu">
-                                <li><a href="blog-category.html">Blog Category</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </li> -->
                         <li class="menu-item-has-children current-menu-item">
                             <a href="{% url 'blog:blog_index' %}">Blog</a>
                             <ul class="sub-menu">
-                                <li><a href="{% url 'blog:blog_index' %}">Blog</a></li>
+                                <!-- <li><a href="{% url 'blog:blog_index' %}">Blog</a></li> -->
                                 <li><a href="{% url 'blog:blog_category' %}">Blog Category</a></li>
                                 <li><a href="{% url 'blog:blog_list' %}">Blog List</a></li>
                             </ul>
@@ -271,7 +257,7 @@
                                 </li>
                             </ul>
                         </div> -->
-                        <div class="blog-tags">
+                        <!-- <div class="blog-tags">
                             <h5>Tags</h5>
                             <div class="tagcloud">
                                 <a href="blog-details.html#">Facebook</a>
@@ -284,8 +270,8 @@
                                 <a href="blog-details.html#">ECR</a>
                                 <a href="blog-details.html#">Laptop C7</a>
                             </div> 
-                        </div>
-                        <div class="blog-author-area">
+                        </div> -->
+                        <!-- <div class="blog-author-area">
                             <div class="blog-author-details media">
                                 <img src="../../static/img/author/3b.png" alt="author">
                                 <div class="media-body">
@@ -293,7 +279,7 @@
                                     <p>Living a fully ethical life, game-changer overcome injustice co-creation catalyze co-creation revolutionary white paper systems thinking hentered. Innovation resilient deep dive shared unit of analysis, ble</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- <div class="recent-blog-area">
                             <div class="row">
                                 <div class="col-12">
@@ -378,28 +364,19 @@
                             </div>
                         </div> -->
                         <div class="comment-area">
-                            <h5>You May Add Comment Now.</h5>
-                            <div class="media">
-                                <div class="thumb">
-                                    <img src="../../static/img/author/4.png" alt="img">
-                                </div>
-                                <div class="media-body">
-                                    <a class="btn float-sm-right" href="blog-details.html#">Reply</a>
-                                    <h6>Ranon Nine</h6>
-                                    <p>Lusto duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                                </div>
-                            </div>
+                            <h5>Previous Comments</h5>
+                            {% for comment in comments %}
                             <div class="media nesting">
                                 <div class="thumb">
                                     <img src="../../static/img/author/5.png" alt="img">
                                 </div>
                                 <div class="media-body">
-                                    <a class="btn float-sm-right" href="blog-details.html#">Reply</a>
-                                    <h6>Alex Paron</h6>
-                                    <p>Lusto duo dolores et ea rebum. Stet clita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                                    <h6>{{ comment.name }}</h6>
+                                    <p>{{ comment.message }}</p>
                                 </div>
                             </div>
-                            <div class="media media-last">
+                            {% endfor %}
+                            <!-- <div class="media media-last">
                                 <div class="thumb">
                                     <img src="../../static/img/author/6.png" alt="img">
                                 </div>
@@ -408,8 +385,9 @@
                                     <h6>Minony Nine</h6>
                                     <p>Lusto duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                                 </div>
-                            </div>
-                            <form class="comment-form">
+                            </div> -->
+                            <!-- <form class="comment-form" method="post" action="{% url 'blog:blog_comment' %}">
+                                {% csrf_token %}
                                 <h5>Leave a Reply</h5>
                                 <div class="row">
                                     <div class="col-12">
@@ -439,7 +417,45 @@
                                     Save my name, email, and website in this browser for the next time.
                                 </div>
                                 <button type="submit" class="btn btn-main">Submit Comment</button>
+                            </form> -->
+
+                            <!-- comment_form.html -->
+                            <form class="comment-form" method="post" action="{% url 'blog:blog_comment' %}">
+                                {% csrf_token %}
+                                <h5>Leave a Reply</h5>
+                                {{ form.as_p }}
+                                <button type="submit" class="btn btn-main">Submit Comment</button>
                             </form>
+
+<!-- 
+                            <div class="container mt-5">
+                                <h5>Leave a Reply-----</h5>
+                                <form method="post" action="{% url 'blog:blog_comment' %}">
+                                    {% csrf_token %}
+                                    {{ form.non_field_errors }}
+                                    <div class="form-group">
+                                        {{ form.name.label_tag }}
+                                        {{ form.name }}
+                                        {{ form.name.errors }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.email.label_tag }}
+                                        {{ form.email }}
+                                        {{ form.email.errors }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.phone_number.label_tag }}
+                                        {{ form.phone_number }}
+                                        {{ form.phone_number.errors }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.message.label_tag }}
+                                        {{ form.message }}
+                                        {{ form.message.errors }}
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Comment</button>
+                                </form>
+                            </div> -->
                         </div>
                     </div>                    
                 </div>
@@ -759,7 +775,7 @@
     <!-- footer area start -->
     <footer class="footer-area">
         <div class="container">
-            <div class="footer-top">
+            <!-- <div class="footer-top">
                 <div class="row">
                     <div class="col-xl-2 col-md-4 col-sm-6">
                         <h5 class="widget-title">Quick Links</h5>
@@ -869,14 +885,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-8 col-lg-7 align-self-center">
                         <div class="footer-logo">
-                            <img src="../../static/img/logo-2.png" alt="img">
+                            <img src="../../static/img/ovalogo.png" alt="img">
                         </div>
                         <ul class="footer_menu">
                             <li><a href="blog-details.html#">About</a></li>
@@ -904,7 +920,7 @@
                         </ul>
                     </div>
                     <div class="col-xl-3 col-lg-6 text-lg-center align-self-center">
-                        <p>@ 2020, <span>Kargil</span>. All right reserved</p>
+                        <p>@ 2020, <span>Ovaloop</span>. All right reserved</p>
                     </div>
                     <div class="col-xl-4 text-xl-right text-xl-center">
                         <ul class="social-area social-area-2">
